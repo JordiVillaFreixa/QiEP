@@ -1,0 +1,59 @@
+
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+.markdown-preview.markdown-preview {
+    // modify your style here
+    // background-color: red;
+    &.prince {
+      @page {
+        font-family: Arial, Serif;
+        font-size: 11pt;
+        text-align: justify;
+        margin-top: 2.5cm;
+        margin-bottom: 2cm;
+        margin-inside: 2.5cm;
+        margin-outside: 2.5cm;
+        size: A4;
+        @bottom {
+          font-family: Arial;
+          font-size: 11pt;
+          content: "Pàgina " counter(page) " de " counter(pages)
+        }
+        @top {
+          font-size: 21pt;
+          font-family: Arial;
+          content: "Tutorial de PFAM";
+          vertical-align: center;
+        }
+        border-top: thin black solid;
+          body {
+        font-family: Times, Serif;
+        font-size: 11pt;
+        text-align: justify;
+        padding: 0.5cm 0cm;
+    }
+    div.body {
+      page: body;
+  }
+  
+  div.body h1 {
+      break-before: right;
+      -prince-page-group: start;
+      string-set: chapter content();
+      counter-increment: chapter;
+      counter-reset: section;
+  }
+  div.body h1::before {
+      content: "Chapter " counter(chapter) ": ";
+  }
+  
+  div.body h2 {
+      string-set: section content();
+      counter-increment: section;
+  }
+  div.body h2::before {
+      content: counter(chapter) "." counter(section) " ";
+  }
+  
+    }}}
